@@ -1,11 +1,32 @@
 ---
 import Layout from "../layouts/Page.astro";
 import Section from "../components/Section.jsx";
+
+import Nav from "../components/Nav.jsx";
+import Title from "../components/Title.jsx";
+import List from "../components/List.jsx";
 ---
 
 <Layout title="Welcome to Astro." route="home">
-  <Section className="h-full">
-    <div class="c">Hey yo!</div>
+  <Nav className="">{""}</Nav>
+  <Section className="h-[75vh] flex flex-col  justify-end">
+    <div class="c">
+      <Title />
+    </div>
+  </Section>
+  <Section className="mb-[50vh]">
+    <div class="c"><List /></div>
+  </Section>
+  <Section className="mb-3">
+    <!-- <div class="c">yo</div> -->
+    <div class="c flex justify-between">
+      <p>
+        <span class="italic">FUTURE</span>
+        LIVING <span class="font-bold">DESIGN</span> RESEARCH STUDIO • INSTALLATIONS,
+        COMMERCIAL AND PRIVATE SPACES
+      </p>
+      <p><span class="ft-gs"> (C)</span> OFFFICE 2022</p>
+    </div>
   </Section>
 </Layout>
 

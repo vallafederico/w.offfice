@@ -1,8 +1,9 @@
 /* ------------------------------  Variables */
 :root {
   /* Colors */
-  --color-black: #111111;
-  --color-white: #fefefe;
+  --col-b: #1c1c1c;
+  --col-w: #fefefe;
+  --col-g: #94ae9e;
   /* Spaces */
   --space-s: 0.5rem;
   --space-m: 1rem;
@@ -11,23 +12,68 @@
 
 /* ------------------------------  Fonts */
 @font-face {
-  font-family: "Sohne-web";
-  src: url("/fonts/Sohne-Buch-webh.woff2") format("woff2"),
-    url("/fonts/Sohne-Buch-webh.woff") format("woff");
+  font-family: "Akk";
+  src: url("fonts/AkkuratTrial-Bold.woff2") format("woff2"),
+    url("fonts/AkkuratTrial-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Akk";
+  src: url("fonts/AkkuratTrial-Regular.woff2") format("woff2"),
+    url("fonts/AkkuratTrial-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Akk";
+  src: url("fonts/AkkuratTrial-Italic.woff2") format("woff2"),
+    url("fonts/AkkuratTrial-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Akk";
+  src: url("fonts/AkkuratTrial-BoldItalic.woff2") format("woff2"),
+    url("fonts/AkkuratTrial-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gas";
+  src: url("fonts/Gascogne-Light.woff2") format("woff2"),
+    url("fonts/Gascogne-Light.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---  Global */
-* {
-  font-family: "Sohne-web";
-  font-size: 14px;
+body {
+  font-family: "Akk";
+  font-size: 12px;
+  line-height: 1.2em;
+}
+
+.ft-gs {
+  font-family: "Gas";
+}
+
+.ft-ak {
+  font-family: "Akk";
 }
 
 body {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--col-g);
+  color: var(--col-b);
 }
 
 /* ------------------------------  Webgl */
@@ -50,12 +96,12 @@ main {
 }
 
 .Section {
-  border: 1px solid blue;
+  /* border: 1px dotted lightgrey; */
 
   /* margin: var(--space-l) var(--space-l); */
 
-  padding-top: var(--space-l);
-  padding-bottom: var(--space-l);
+  /* padding-top: var(--space-l); */
+  /* padding-bottom: var(--space-l); */
 }
 
 .c {
