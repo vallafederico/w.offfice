@@ -1,7 +1,5 @@
 export default function ({ children, className }) {
   const navLinks = [
-    { text: "About.", path: "/about" },
-    { text: "Archive.", path: "/about" },
     { text: "Custom Work.", path: "/about" },
     { text: "Shop Archive.", path: "/about" },
   ];

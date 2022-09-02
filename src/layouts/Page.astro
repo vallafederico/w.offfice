@@ -23,7 +23,7 @@ const { title, route } = Astro.props;
     <!-- Webgl -->
     <canvas data-gl="c"></canvas>
     <!-- <div data-gl="c"></div> -->
-    <script type="module" src={(await import("../js/app.js?url")).default}
+    <script defer type="module" src={(await import("../js/app.js?url")).default}
     ></script>
   </body>
 </html>
