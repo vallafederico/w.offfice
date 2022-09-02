@@ -15,7 +15,9 @@ export default function ({ children, className }) {
       <ul class=" text-right font-bold leading-[2em]">
         {navLinks.map((link) => (
           <li>
-            <a href={link.path}>{link.text}</a>
+            <a class="hover:opacity-50" href={link.path}>
+              {link.text}
+            </a>
           </li>
         ))}
       </ul>

@@ -122,4 +122,30 @@ main {
   margin-right: var(--space-l);
 }
 
-/* ------------------------------  ... */
+/* ------------------------------  Animations */
+
+/* .ListItem {
+  position: relative;
+  cursor: pointer;
+}
+
+.ListItem:after {
+  position: absolute;
+  content: " ";
+  background: var(--col-b);
+  height: 1px;
+  width: 100%;
+  top: 50%;
+  left: 0px;
+
+  transform-origin: right;
+  transform: scaleX(0);
+
+  transition: transform 0.3s ease;
+}
+
+.ListItem:hover:after {
+  transform: scaleX(0.6);
+
+  transition: transform 0.2s ease;
+} */
