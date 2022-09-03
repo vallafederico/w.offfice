@@ -1,5 +1,5 @@
 import normalizeWheel from "normalize-wheel";
-import Prefix from "prefix";
+// import Prefix from "prefix";
 
 /**
  * @param {object} [parameters]
@@ -43,7 +43,7 @@ export default class {
     this.percentage = 0;
 
     // 3. utils
-    this.transformPrefix = Prefix("transform");
+    // this.transformPrefix = Prefix("transform");
     new ResizeObserver((entry) => this.onResize(entry[0].contentRect)).observe(
       this.wrapper
     );
@@ -191,9 +191,7 @@ export default class {
   }
 
   move() {
-    this.wrapper.style[
-      this.transformPrefix
-    ] = `translateY(-${this.y.current}px)`;
+    this.wrapper.style.transform = `translateY(-${this.y.current}px)`;
   }
 
   getSpeed() {
