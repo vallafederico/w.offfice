@@ -5,7 +5,7 @@ export default function () {
     <ul class="mt-2">
       <div class="flex justify-end py-1">
         <h2 class="font-bold  text-lg">
-          <span class="text-[.5em]">↗</span> Archive.
+          <span class="text-[.5em]">↙</span> Archive.
         </h2>
       </div>
       {CONTENT.list.map((item) => (
