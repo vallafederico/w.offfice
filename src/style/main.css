@@ -13,8 +13,8 @@
 /* ------------------------------  Fonts */
 @font-face {
   font-family: "Akk";
-  src: url("AkkuratTrial-Bold.woff2") format("woff2"),
-    url("AkkuratTrial-Bold.woff") format("woff");
+  src: url("/AkkuratTrial-Bold.woff2") format("woff2"),
+    url("/AkkuratTrial-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -22,8 +22,8 @@
 
 @font-face {
   font-family: "Akk";
-  src: url("AkkuratTrial-Regular.woff2") format("woff2"),
-    url("AkkuratTrial-Regular.woff") format("woff");
+  src: url("/AkkuratTrial-Regular.woff2") format("woff2"),
+    url("/AkkuratTrial-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -31,8 +31,8 @@
 
 @font-face {
   font-family: "Akk";
-  src: url("AkkuratTrial-Italic.woff2") format("woff2"),
-    url("AkkuratTrial-Italic.woff") format("woff");
+  src: url("/AkkuratTrial-Italic.woff2") format("woff2"),
+    url("/AkkuratTrial-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -40,8 +40,8 @@
 
 @font-face {
   font-family: "Akk";
-  src: url("AkkuratTrial-BoldItalic.woff2") format("woff2"),
-    url("AkkuratTrial-BoldItalic.woff") format("woff");
+  src: url("/AkkuratTrial-BoldItalic.woff2") format("woff2"),
+    url("/AkkuratTrial-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -49,8 +49,8 @@
 
 @font-face {
   font-family: "Gas";
-  src: url("Gascogne-Light.woff2") format("woff2"),
-    url("Gascogne-Light.woff") format("woff");
+  src: url("/Gascogne-Light.woff2") format("woff2"),
+    url("/Gascogne-Light.woff") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -58,8 +58,8 @@
 
 @font-face {
   font-family: "Rhd";
-  src: url("RabbitHole-Display.woff2") format("woff2"),
-    url("RabbitHole-Display.woff") format("woff");
+  src: url("/RabbitHole-Display.woff2") format("woff2"),
+    url("/RabbitHole-Display.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
