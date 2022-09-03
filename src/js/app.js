@@ -1,5 +1,5 @@
-import Gl from "./modules/gl/gl";
-import Scroll from "./modules/scroll";
+import Gl from "./modules/gl/gl.js";
+import Scroll from "./modules/scroll.js";
 
 class App {
   constructor() {
