@@ -5,28 +5,33 @@ import Section from "../components/Section.jsx";
 import Nav from "../components/Nav.jsx";
 import Title from "../components/Title.jsx";
 import List from "../components/List.jsx";
+import Footer from "../components/Footer.jsx";
 ---
 
 <Layout title="Welcome to Astro." route="home">
-  <Nav className="">{""}</Nav>
-  <Section className="h-[75vh] flex flex-col  justify-end">
+  <!-- title -->
+  <Section className="flex flex-col justify-start min-h-[90vh]">
     <div class="c">
       <Title />
     </div>
+    <div class="c">
+      <a href="/">
+        offfice. <span class="ft-gs">studio</span>
+      </a>
+    </div>
+    <!-- navbar -->
+    <Nav className="">{""}</Nav>
   </Section>
+
+  <!-- list -->
   <Section className="mb-[30vh]">
     <div class="c"><List /></div>
   </Section>
-  <Section className="mb-3">
+
+  <!-- footer -->
+  <Section>
     <!-- <div class="c">yo</div> -->
-    <div class="c flex justify-between">
-      <p>
-        <span class="italic">FUTURE</span>
-        LIVING <span class="font-bold">DESIGN</span> RESEARCH STUDIO • INSTALLATIONS,
-        COMMERCIAL AND PRIVATE SPACES
-      </p>
-      <p><span class="ft-gs"> (C)</span> OFFFICE 2022</p>
-    </div>
+    <Footer />
   </Section>
 </Layout>
 

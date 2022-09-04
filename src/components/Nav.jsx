@@ -6,12 +6,12 @@ export default function ({ children, className }) {
 
   return (
     <nav
-      class={"Nav flex px-[2vw] py-[2em] justify-between w-full" + className}
+      class={
+        "Nav flex px-[2vw] py-[2em] justify-between w-full fixed top-[0em]" +
+        className
+      }
     >
-      <a href="/">
-        offfice. <span class="ft-gs">studio</span>
-      </a>
-
+      <div></div>
       <ul class=" text-right font-bold leading-[2em]">
         {navLinks.map((link) => (
           <li>

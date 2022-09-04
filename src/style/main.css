@@ -2,7 +2,7 @@
 :root {
   /* Colors */
   --col-b: #1c1c1c;
-  --col-w: #fefefe;
+  --col-w: #b6b6b6;
   --col-g: #94ae9e;
   /* Spaces */
   --space-s: 0.5rem;
@@ -85,7 +85,7 @@ body {
 }
 
 body {
-  background: var(--col-g);
+  background: var(--col-w);
   color: var(--col-b);
 }
 
