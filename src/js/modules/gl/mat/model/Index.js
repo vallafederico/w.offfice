@@ -1,4 +1,5 @@
 import vert from "./vertex.vert";
 import frag from "./fragment.frag";
 
-export const shaders = [vert, frag];
+const Sh = [vert, frag];
+export default Sh;

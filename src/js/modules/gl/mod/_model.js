@@ -7,7 +7,7 @@ import {
   createBufferInfoFromArrays,
 } from "twgl.js";
 
-import { shaders } from "../mat/model/index.js";
+import shaders from "../mat/model";
 import { loadModel } from "../utils/mod-loader.js";
 
 export default class {
