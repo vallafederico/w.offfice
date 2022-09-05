@@ -9,9 +9,9 @@ export default class {
     this.gl = this.canvas.getContext("webgl");
     this.gl.clearColor(0.04, 0.04, 0.04, 0);
     this.gl.vp = { dpr: Math.min(window.devicePixelRatio, 2) };
-    // this.gl.enable(this.gl.CULL_FACE);
-    //this.gl.cullFace(this.gl.BACK);
-    // this.gl.enable(this.gl.DEPTH_TEST);
+    this.gl.enable(this.gl.CULL_FACE);
+    // this.gl.cullFace(this.gl.BACK);
+    this.gl.enable(this.gl.DEPTH_TEST);
 
     this.camera = new Camera(this.gl);
     this.gl.camera = this.camera.get(this.gl);
@@ -34,7 +34,7 @@ export default class {
     this.scene = new Scene(this.gl);
 
     this.post = new Post(this.gl);
-    this.post.isActive = true;
+    this.post.isActive = false;
   }
 
   render(y = 0) {
@@ -46,7 +46,10 @@ export default class {
 
     if (this.post && this.post.isActive) this.post.setupRender();
     if (this.scene) this.scene.render(this.time, this.scroll);
-    if (this.post && this.post.isActive) this.post.render(this.time);
+
+    if (this.post && this.post.isActive) {
+      this.post.render(this.time);
+    }
 
     requestAnimationFrame(this.render.bind(this));
   }

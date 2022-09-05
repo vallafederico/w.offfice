@@ -1,16 +1,16 @@
-// import Gl from "./modules/gl/gl.js";
+import Gl from "./modules/gl/gl.js";
 import Scroll from "./modules/scroll.js";
 
 class App {
   constructor() {
-    console.log("App");
+    // console.log("App");
 
     this.init();
   }
 
   init() {
     this.scroll = new Scroll();
-    // this.gl = new Gl();
+    this.gl = new Gl();
 
     this.render();
   }

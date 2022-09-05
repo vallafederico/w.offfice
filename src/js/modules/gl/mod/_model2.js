@@ -1,6 +1,6 @@
 import {
   createProgramInfo,
-  m4,
+  // m4,
   setBuffersAndAttributes,
   setUniforms,
   drawBufferInfo,
@@ -8,29 +8,28 @@ import {
 } from "twgl.js";
 
 import shaders from "../mat/model";
-import { loadModel } from "../utils/mod-loader.js";
+import { LIB } from "../../../assets/lib.js";
+import { loadModelDeep } from "../utils/gltf-loader.js";
 
 export default class {
-  constructor(gl, data = { x: 0, y: 0, z: 0 }) {
+  constructor(gl, data = {}) {
     this.gl = gl;
     this.data = data;
     this.shouldRender = false;
     this.shaders = shaders;
     this.programInfo = createProgramInfo(this.gl, this.shaders);
 
-    this.mat = m4.create();
-    m4.translation([this.data.x, this.data.y, this.data.z], this.mat);
-
     this.tr = { x: 1, y: 0, z: 0, w: 0 };
+
+    this.load();
   }
 
-  // this to load inside the model
-  async load(data) {
-    const loaded = await loadModel(data);
-    this.init(loaded);
+  async load() {
+    const loaded = await loadModelDeep(LIB.m1);
+    const final = loaded[0].arr;
+    this.init(final);
   }
 
-  // else pass arrays straight to init()
   init(arr) {
     this.gl.useProgram(this.programInfo.program);
     this.setBuffAtt(arr);
@@ -48,7 +47,6 @@ export default class {
       u_res: [this.gl.canvas.width, this.gl.canvas.height],
       u_vs: this.gl.vp.viewSize,
       u_camera: this.gl.camera.mat,
-      u_id: this.mat,
     };
 
     this.gl.useProgram(this.programInfo.program);
@@ -62,9 +60,6 @@ export default class {
     setBuffersAndAttributes(this.gl, this.programInfo, this.bufferInfo);
 
     setUniforms(this.programInfo, {
-      u_res: [this.gl.canvas.width, this.gl.canvas.height],
-      u_vs: this.gl.vp.viewSize,
-      u_camera: this.gl.camera.mat,
       u_time: t,
     });
 
