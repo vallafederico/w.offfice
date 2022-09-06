@@ -23,8 +23,8 @@ void main() {
   vec4 pos = position;
 
   pos *= u_rmat;
-  pos.xyz *= .06;
-  pos.z += sin(u_time) * 2.;
+  pos.xyz *= 1.1;
+  // pos.z += sin(u_time) * 2.;
 
 
   gl_Position =  u_camera * u_id * vec4(pos);

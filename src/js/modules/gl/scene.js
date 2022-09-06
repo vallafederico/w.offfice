@@ -1,9 +1,8 @@
-// import Quad from "./mod/_quad";
 import Model from "./mod/_model.js";
 import Spinner from "./utils/spinner.js";
 
 import { LIB } from "../../../assets/lib";
-import { loadModel } from "./utils/mod-loader.js";
+// import { loadModel } from "./utils/mod-loader.js";
 
 export default class {
   constructor(gl) {

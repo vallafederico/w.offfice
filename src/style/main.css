@@ -94,6 +94,10 @@ body,
   overscroll-behavior: none;
 }
 
+html {
+  cursor: crosshair;
+}
+
 /* ---  Global */
 body {
   font-family: "Akk";
