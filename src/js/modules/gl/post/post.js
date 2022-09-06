@@ -24,9 +24,21 @@ export default class {
       null
     );
 
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE);
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE);
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_MIN_FILTER,
+      this.gl.LINEAR
+    );
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_WRAP_S,
+      this.gl.CLAMP_TO_EDGE
+    );
+    this.gl.texParameteri(
+      this.gl.TEXTURE_2D,
+      this.gl.TEXTURE_WRAP_T,
+      this.gl.CLAMP_TO_EDGE
+    );
 
     // CREATE RENDER BUFFER
     this.depthBuffer = this.gl.createRenderbuffer();
@@ -91,12 +103,14 @@ export default class {
   setupRender() {
     if (!this.isActive) return;
     this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, this.fbi);
-    this.gl.clear(this.gl.COLOR_BUFFER_BIT || this.gl.DEPTH_BUFFER_BIT);
+    this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
   }
 
   render(t) {
     if (!this.isActive) return;
+
     this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null);
+
     if (this.quad) this.quad.render(t, this.texture);
   }
 

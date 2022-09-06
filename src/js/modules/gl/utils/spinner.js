@@ -1,6 +1,6 @@
 import { m4 } from "twgl.js";
 
-export class Spinner {
+export default class Spinner {
   constructor() {
     this.spin = { x: 0, y: 0 };
     // main
@@ -8,7 +8,7 @@ export class Spinner {
     this.pointerDown = false;
     this.pointer = {
       x: 0,
-      y: 0
+      y: 0,
     };
 
     this.rmat = m4.translation([0, 0, 0]);
@@ -39,8 +39,8 @@ export class Spinner {
 
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     const y = e.touches ? e.touches[0].clientY : e.clientY;
-    this.velocity.x += (x - this.pointer.x) * 0.002;
-    this.velocity.y += (y - this.pointer.y) * 0.002;
+    this.velocity.x += (x - this.pointer.x) * 0.0002;
+    this.velocity.y += (y - this.pointer.y) * 0.0002;
 
     this.pointer.x = x;
     this.pointer.y = y;
@@ -55,8 +55,15 @@ export class Spinner {
     this.velocity.x *= 0.95;
     this.velocity.y *= 0.95;
 
-    const mx = m4.axisRotation([1, 0, 0], this.velocity.y);
-    const my = m4.axisRotation([0, 1, 0], this.velocity.x + 1.5);
+    this.spin.x +=
+      this.velocity.x +
+      Math.sign(this.velocity.x) * 0.005 * (1 - Number(this.pointerDown));
+    this.spin.y +=
+      this.velocity.y +
+      Math.sign(this.velocity.y) * 0.005 * (1 - Number(this.pointerDown));
+
+    const mx = m4.axisRotation([1, 0, 0], this.spin.y);
+    const my = m4.axisRotation([0, 1, 0], -this.spin.x + 1.5);
     m4.multiply(mx, my, this.rmat);
   }
 }

@@ -15,7 +15,7 @@ export default class {
 
   setBuffAtt() {
     const arrays = {
-      position: [-1, -1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1, -1, 0, 1, 1, 0]
+      position: [-1, -1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1, -1, 0, 1, 1, 0],
     };
     this.bufferInfo = twgl.createBufferInfoFromArrays(this.gl, arrays);
   }
@@ -23,7 +23,7 @@ export default class {
   setUniforms() {
     this.uniforms = {
       u_res: [this.gl.canvas.width, this.gl.canvas.height],
-      u_time: 0
+      u_time: 0,
       //  u_diff: null
     };
 
@@ -36,7 +36,7 @@ export default class {
     twgl.setBuffersAndAttributes(this.gl, this.programInfo, this.bufferInfo);
     twgl.setUniforms(this.programInfo, {
       u_time: time,
-      u_diff: diff
+      u_diff: diff,
     });
 
     twgl.drawBufferInfo(this.gl, this.bufferInfo);
@@ -48,7 +48,7 @@ export default class {
 
     this.gl.useProgram(this.programInfo.program);
     twgl.setUniforms(this.programInfo, {
-      u_res: [this.gl.canvas.width, this.gl.canvas.height]
+      u_res: [this.gl.canvas.width, this.gl.canvas.height],
     });
   }
 }

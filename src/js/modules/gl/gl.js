@@ -34,14 +34,14 @@ export default class {
     this.scene = new Scene(this.gl);
 
     this.post = new Post(this.gl);
-    this.post.isActive = false;
+    this.post.isActive = true;
   }
 
   render(y = 0) {
     this.time += 0.01;
     this.scroll = y * this.gl.vp.px || 0;
 
-    this.gl.clear(this.gl.COLOR_BUFFER_BIT || this.gl.DEPTH_BUFFER_BIT);
+    this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
     this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
 
     if (this.post && this.post.isActive) this.post.setupRender();

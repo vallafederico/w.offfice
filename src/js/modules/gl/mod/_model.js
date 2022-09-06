@@ -7,7 +7,7 @@ import {
   createBufferInfoFromArrays,
 } from "twgl.js";
 
-import { shaders } from "../mat/model/index.js";
+import shaders from "../mat/model/index.js";
 import { loadModel } from "../utils/mod-loader.js";
 
 export default class {
@@ -27,7 +27,7 @@ export default class {
   // this to load inside the model
   async load(data) {
     const loaded = await loadModel(data);
-    console.log(loaded);
+    // console.log(loaded);
     this.init(loaded);
   }
 
@@ -56,7 +56,7 @@ export default class {
     setUniforms(this.programInfo, this.uniforms);
   }
 
-  render(t) {
+  render(t, rmat) {
     if (!this.shouldRender) return;
 
     this.gl.useProgram(this.programInfo.program);
@@ -66,7 +66,9 @@ export default class {
       u_res: [this.gl.canvas.width, this.gl.canvas.height],
       u_vs: this.gl.vp.viewSize,
       u_camera: this.gl.camera.mat,
+      u_id: this.mat,
       u_time: t,
+      u_rmat: rmat,
     });
 
     drawBufferInfo(this.gl, this.bufferInfo);

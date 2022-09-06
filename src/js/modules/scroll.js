@@ -17,7 +17,7 @@ export default class {
     const {
       wrapper = "[data-scroll]",
       factor = 0.5,
-      mouse = true,
+      mouse = false,
       speed = true,
       percentage = true,
       events = false,
@@ -184,7 +184,7 @@ export default class {
     if (Math.abs(this.y.target - this.y.current) < 0.1) return;
 
     this.y.target = clamp(0, this.y.limit, this.y.target);
-    this.y.current = lerp(this.y.current, this.y.target, 0.1);
+    this.y.current = lerp(this.y.current, this.y.target, 0.05);
     if (this.y.target < 0.01) this.y.target = 0;
 
     this.move();

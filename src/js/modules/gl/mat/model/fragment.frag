@@ -11,8 +11,17 @@ varying vec3 v_nor;
 
 void main() {
 
+    // * hemi
+    vec3 h_sky = vec3(1., 1., 1.);
+    vec3 h_ground = vec3(.1, .1, .1);
+    vec3 h_dir = normalize(vec3(1., -2., 4.));
+    vec3 hlight = mix(h_ground, h_sky, 1. - dot(h_dir, v_nor));
 
-    gl_FragColor.rgb = vec3(v_nor);
+    vec3 final = vec3(0.45098039215686275, 0.45098039215686275, 0.45098039215686275);
+    final += hlight * .1;
+
+
+    gl_FragColor.rgb = final;
     gl_FragColor.a = 1.;
 }
 
