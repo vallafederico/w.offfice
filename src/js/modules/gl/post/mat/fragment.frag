@@ -80,20 +80,22 @@ float snoise(vec3 v){
                                 dot(p2,x2), dot(p3,x3) ) );
 }
 
+
 void main() {
   vec2 uv = gl_FragCoord.xy / u_res;
 
-  float ns = snoise(vec3(uv * 1.1, u_time * .2));
+  float ns = snoise(vec3(uv * 8.1, u_time * .2));
 
   float cent_grad = distance(vec2(.5), uv);
-  cent_grad = smoothstep(0., .3, cent_grad);
+  cent_grad = smoothstep(.1, .8, cent_grad);
 
-  vec2 n_uv = uv + (uv * ns * cent_grad * .2);
+  vec2 n_uv = uv + (uv * ns * cent_grad * .2) * 0.6;
+
   vec4 img = texture2D(u_diff, n_uv);
 
-  // statiuc noise
-  float ns2 = snoise(vec3(uv * 9000., u_time * 10.)) * .05;
-  img -= ns2;
+  // static noise
+  // float ns2 = snoise(vec3(uv * 10000., u_time * 10.)) * .05;
+  // img -= ns2;
 
 
 

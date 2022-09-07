@@ -20,6 +20,9 @@ export default class {
   async load() {
     this.model = new Model(this.gl);
     this.model.load(LIB.m0);
+
+    // this.model2 = new Model(this.gl);
+    // this.model2.load(LIB.m1);
   }
 
   render(t, y) {
@@ -27,11 +30,15 @@ export default class {
 
     if (this.model && this.model.shouldRender)
       this.model.render(t, this.spinner.rmat);
+
+    // if (this.model2 && this.model2.shouldRender)
+    //   this.model2.render(t, this.spinner.rmat);
   }
 
   resize(gl) {
     this.gl = gl;
 
     if (this.model) this.model.resize(this.gl);
+    // if (this.model2) this.model2.resize(this.gl);
   }
 }
