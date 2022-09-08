@@ -20,7 +20,6 @@ export default class {
     );
 
     this.items[0].viz.load(this.items[0].url);
-    // console.log(this.items);
 
     this.initEvents();
   }
@@ -46,7 +45,11 @@ export default class {
         this.items[this.currentItemIndex].active = false;
         this.items[i].active = true;
         this.currentItemIndex = i;
-        this.items[i].viz.load(this.items[i].url);
+
+        if (!item.viz.isLoaded) {
+          // load if not loaded
+          item.viz.load(this.items[i].url);
+        }
       };
     });
   }

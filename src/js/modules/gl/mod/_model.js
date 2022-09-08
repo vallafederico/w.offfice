@@ -31,7 +31,7 @@ export default class {
   // this to load inside the model
   async load(data) {
     const loaded = await loadModel(data);
-    // console.log(loaded);
+    console.log("loaded");
     this.init(loaded);
   }
 
@@ -41,6 +41,7 @@ export default class {
     this.setBuffAtt(arr);
     this.setUniforms();
     this.shouldRender = true;
+    this.isLoaded = true;
 
     this.initEvents();
   }
