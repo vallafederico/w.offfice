@@ -32,7 +32,7 @@ void main() {
   v_res = u_res;
   v_time = u_time;
   v_uv = texcoord;
-  v_nor = normal;
+  v_nor = vec3(vec4(normal, 1.) * u_rmat).xyz;
 }
 
   

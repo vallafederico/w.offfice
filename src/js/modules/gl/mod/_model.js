@@ -11,14 +11,18 @@ import shaders from "../mat/model/index.js";
 import { loadModel } from "../utils/mod-loader.js";
 
 export default class {
-  constructor(gl, data = { x: 0, y: 0, z: 0 }) {
+  constructor(gl, config = {}) {
     this.gl = gl;
-    this.data = data;
+    // this.config = config;
     this.shouldRender = false;
+
     this.shaders = shaders;
     this.programInfo = createProgramInfo(this.gl, this.shaders);
+    // console.log(this.config);
 
     this.mat = m4.create();
+
+    this.data = { x: 0, y: 0, z: 0 };
     m4.translation([this.data.x, this.data.y, this.data.z], this.mat);
 
     this.tr = { x: 1, y: 0, z: 0, w: 0 };
@@ -37,6 +41,8 @@ export default class {
     this.setBuffAtt(arr);
     this.setUniforms();
     this.shouldRender = true;
+
+    this.initEvents();
   }
 
   setBuffAtt(arr) {
@@ -75,11 +81,17 @@ export default class {
   }
 
   resize(gl) {
+    if (!this.shouldRender) return;
     this.gl = gl;
     setUniforms(this.programInfo, {
       u_res: [gl.canvas.width, gl.canvas.height],
       u_vs: gl.vp.viewSize,
       u_camera: gl.camera.mat,
     });
+  }
+
+  /* --- DOM */
+  initEvents() {
+    // console.log(this.config.el);
   }
 }

@@ -87,15 +87,18 @@ void main() {
   float ns = snoise(vec3(uv * 8.1, u_time * .2));
 
   float cent_grad = distance(vec2(.5), uv);
-  cent_grad = smoothstep(.1, .8, cent_grad);
+  cent_grad = smoothstep(.1, .3, cent_grad);
 
-  vec2 n_uv = uv + (uv * ns * cent_grad * .2) * 0.6;
+  vec2 n_uv = uv + (uv * ns * cent_grad * .2) * 0.3;
 
   vec4 img = texture2D(u_diff, n_uv);
 
   // static noise
-  // float ns2 = snoise(vec3(uv * 10000., u_time * 10.)) * .05;
-  // img -= ns2;
+  img += snoise(vec3(
+    uv.x * 800.,
+    uv.y * 800., 
+    u_time * 10.
+  )) * .03;
 
 
 

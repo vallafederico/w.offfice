@@ -1,3 +1,5 @@
+import { LIB } from "../assets/lib.js";
+
 export const CONTENT = {
   list: [
     {
@@ -5,24 +7,21 @@ export const CONTENT = {
       year: "2018",
       type: "Design",
       object: "Armchair",
+      model: LIB.m0,
     },
     {
       name: "Smoking Objects : Ashtray VI",
       year: "2019",
       type: "Design",
       object: "Ashtray",
+      model: LIB.m1,
     },
     {
       name: "Wondering Chair II",
       year: "2019",
       type: "Design",
       object: "Armchair",
-    },
-    {
-      name: "Set Back Sofa",
-      year: "2019",
-      type: "Installation",
-      object: "Set Design",
+      model: LIB.m2,
     },
   ],
 };

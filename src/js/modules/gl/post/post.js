@@ -27,7 +27,7 @@ export default class {
     this.gl.texParameteri(
       this.gl.TEXTURE_2D,
       this.gl.TEXTURE_MIN_FILTER,
-      this.gl.LINEAR
+      this.gl.NEAREST
     );
     this.gl.texParameteri(
       this.gl.TEXTURE_2D,

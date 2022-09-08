@@ -9,7 +9,10 @@ export default function () {
         </h2>
       </div>
       {CONTENT.list.map((item) => (
-        <li class="ListItem flex justify-between uppercase border-black border-t py-1 relative">
+        <li
+          class="ListItem flex justify-between uppercase border-black border-t py-1 relative"
+          data-model={item.model}
+        >
           <div class="">
             <p class="inline ft-gs mr-3">{item.name}</p>{" "}
             <span class=""> {item.year}</span>
