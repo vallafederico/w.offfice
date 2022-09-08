@@ -11,10 +11,12 @@ export default function () {
       {CONTENT.list.map((item) => (
         <li class="ListItem flex justify-between uppercase border-black border-t py-1 relative">
           <div class="">
-            <p class="inline ft-gs mr-3">{item.name}</p> {item.year}
+            <p class="inline ft-gs mr-3">{item.name}</p>{" "}
+            <span class=""> {item.year}</span>
           </div>
-          <div class="flex justify-between w-[50%]">
-            <div class=" w-[10%] flex justify-between">
+
+          <div class="flex md:justify-between md:w-[50%] justify-end">
+            <div class=" w-[10%] sm:flex hidden justify-between">
               <div>
                 {"•"} <span class="text-[.6em]">WW</span>
               </div>
@@ -24,7 +26,9 @@ export default function () {
             </div>
 
             <div class="">
-              <span class="text-[8px] capitalize mr-6">{item.type}</span>{" "}
+              <span class="text-[8px] capitalize md:mr-6 mr-2 hidden sm:visible">
+                {item.type}
+              </span>{" "}
               {item.object}
             </div>
           </div>

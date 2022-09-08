@@ -161,6 +161,7 @@ export default class {
   }
 
   touchMove(e) {
+    // e.preventDefault();
     if (!this.touch.isDown) return;
     this.y.target +=
       (this.touch.down - e.touches[0].clientY) * this.touch.factor;
