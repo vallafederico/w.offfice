@@ -1,4 +1,4 @@
-import Quad from "./quad";
+// import Quad from "./quad";
 
 export default class {
   constructor(gl) {
@@ -93,7 +93,7 @@ export default class {
    */
 
   createPlane() {
-    this.quad = new Quad(this.gl);
+    // this.quad = new Quad(this.gl);
   }
 
   /**
@@ -106,28 +106,18 @@ export default class {
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
   }
 
-  render(t, t1 = null, t2 = null) {
+  render(t) {
     if (!this.isActive) return;
 
     this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null);
 
-    // console.log(t1);
-
-    if (this.quad) this.quad.render(t, this.texture, t1, t2);
+    // if (this.quad) this.quad.render(t, this.texture);
   }
 
   resize(gl) {
     this.gl = gl;
     this.create();
 
-    if (this.quad) this.quad.resize(this.gl);
-  }
-
-  /**
-   * Events
-   */
-
-  onSceneChange(e) {
-    this.quad.slide(e);
+    // if (this.quad) this.quad.resize(this.gl);
   }
 }

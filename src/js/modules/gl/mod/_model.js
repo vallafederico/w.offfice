@@ -7,6 +7,8 @@ import {
   createBufferInfoFromArrays,
 } from "twgl.js";
 
+import Rt from "../post/rendertarget.js";
+
 import shaders from "../mat/model/index.js";
 import { loadModel } from "../utils/mod-loader.js";
 
@@ -26,13 +28,18 @@ export default class {
     m4.translation([this.data.x, this.data.y, this.data.z], this.mat);
 
     this.tr = { x: 1, y: 0, z: 0, w: 0 };
+
+    this.rt = new Rt(this.gl);
   }
 
   // this to load inside the model
   async load(data) {
     const loaded = await loadModel(data);
-    console.log("loaded");
     this.init(loaded);
+
+    this.rt.resize(this.gl);
+    this.rt.isActive = true;
+    // console.log(this.rt.texture);
   }
 
   // else pass arrays straight to init()
@@ -78,17 +85,22 @@ export default class {
       u_rmat: rmat,
     });
 
+    if (this.rt && this.rt.isActive) this.rt.setupRender(); // render to texture
+
     drawBufferInfo(this.gl, this.bufferInfo);
   }
 
   resize(gl) {
     if (!this.shouldRender) return;
     this.gl = gl;
+
     setUniforms(this.programInfo, {
       u_res: [gl.canvas.width, gl.canvas.height],
       u_vs: gl.vp.viewSize,
       u_camera: gl.camera.mat,
     });
+
+    if (this.rt) this.rt.resize(this.gl);
   }
 
   /* --- DOM */

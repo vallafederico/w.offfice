@@ -6,7 +6,7 @@ export default function () {
         future
         <div class="w-full lg:flex hidden justify-between align-middle content-center text-xs ml-[10%]">
           <div class="flex flex-col justify-center ">
-            <p class="max-w-[30ch] ">
+            <p class="max-w-[30ch]">
               <span class="italic">FUTURE </span>
               LIVING <span class="font-bold">DESIGN</span> RESEARCH STUDIO •
               INSTALLATIONS, COMMERCIAL AND PRIVATE SPACES

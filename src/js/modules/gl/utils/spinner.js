@@ -52,8 +52,8 @@ export default class Spinner {
 
   render() {
     // raf
-    this.velocity.x *= 0.95;
-    this.velocity.y *= 0.95;
+    this.velocity.x *= 0.9;
+    this.velocity.y *= 0.9;
 
     this.spin.x +=
       this.velocity.x +
@@ -63,14 +63,7 @@ export default class Spinner {
       Math.sign(this.velocity.y) * 0.005 * (1 - Number(this.pointerDown));
 
     const mx = m4.axisRotation([1, 0, 0], this.spin.y);
-    const my = m4.axisRotation([0, 1, 0], -this.spin.x + 1.5);
+    const my = m4.axisRotation([0, 1, 0], -this.spin.x);
     m4.multiply(mx, my, this.rmat);
   }
 }
-
-/*
-    this.spin.x +=
-      this.velocity.x + Math.sign(this.velocity.x) * 0.005 * (1 - Number(this.pointerDown));
-    this.spin.y +=
-      this.velocity.y + Math.sign(this.velocity.y) * 0.005 * (1 - Number(this.pointerDown));
-    */

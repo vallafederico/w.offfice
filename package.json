@@ -20,6 +20,7 @@
     "@loaders.gl/core": "^3.2.8",
     "@loaders.gl/gltf": "^3.2.8",
     "normalize-wheel": "^1.0.1",
+    "tiny-emitter": "^2.1.0",
     "twgl.js": "^4.24.0"
   }
 }

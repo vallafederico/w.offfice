@@ -2,7 +2,7 @@ import { CONTENT } from "./content.js";
 
 export default function () {
   return (
-    <ul class="mt-2">
+    <ul class="mt-2 z-50">
       <div class="flex justify-end py-1">
         <h2 class="font-bold  text-lg">
           <span class="text-[.5em]">↙</span> Archive.

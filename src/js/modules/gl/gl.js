@@ -9,9 +9,10 @@ export default class {
     this.gl = this.canvas.getContext("webgl");
     this.gl.clearColor(0.04, 0.04, 0.04, 0);
     this.gl.vp = { dpr: Math.min(window.devicePixelRatio, 2) };
+
     this.gl.enable(this.gl.CULL_FACE);
-    // this.gl.cullFace(this.gl.BACK);
     this.gl.enable(this.gl.DEPTH_TEST);
+    // this.gl.cullFace(this.gl.BACK);
 
     this.camera = new Camera(this.gl);
     this.gl.camera = this.camera.get(this.gl);
@@ -35,6 +36,14 @@ export default class {
 
     this.post = new Post(this.gl);
     this.post.isActive = true;
+
+    // events - obj change
+    this.scene.slider.on("SLIDE", this.handleSceneChange.bind(this));
+  }
+
+  handleSceneChange(e) {
+    // console.log("handleSceneChange");
+    if (this.post) this.post.onSceneChange(e);
   }
 
   render(y = 0) {
@@ -44,11 +53,15 @@ export default class {
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
     this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
 
-    if (this.post && this.post.isActive) this.post.setupRender();
+    // if (this.post && this.post.isActive) this.post.setupRender();
     if (this.scene) this.scene.render(this.time, this.scroll);
 
     if (this.post && this.post.isActive) {
-      this.post.render(this.time);
+      this.post.render(
+        this.time,
+        this.scene.slider.tx.curr,
+        this.scene.slider.tx.next
+      );
     }
 
     requestAnimationFrame(this.render.bind(this));
@@ -86,4 +99,6 @@ export default class {
   get pixelSize() {
     return this.viewSize[0] / window.innerWidth;
   }
+
+  /** --  Events */
 }

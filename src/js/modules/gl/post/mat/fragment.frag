@@ -1,9 +1,14 @@
+#define MTAU 6.28318530718
 precision mediump float;
 
 uniform vec2 u_res;
 uniform float u_time;
 
+uniform float u_a_trans;
+
 uniform sampler2D u_diff;
+uniform sampler2D u_t1;
+uniform sampler2D u_t2;
 
 //	Simplex 3D Noise 
 //	by Ian McEwan, Ashima Arts
@@ -82,6 +87,8 @@ float snoise(vec3 v){
 
 
 void main() {
+  float OSC = sin(MTAU * u_a_trans);
+
   vec2 uv = gl_FragCoord.xy / u_res;
 
   float ns = snoise(vec3(uv * 8.1, u_time * .2));
@@ -89,9 +96,19 @@ void main() {
   float cent_grad = distance(vec2(.5), uv);
   cent_grad = smoothstep(.1, .3, cent_grad);
 
-  vec2 n_uv = uv + (uv * ns * cent_grad * .2) * 0.3;
+  vec2 n_uv = uv + (uv * ns * .2) * .1;
 
-  vec4 img = texture2D(u_diff, n_uv);
+  vec4 img1 = texture2D(u_t1, vec2(
+    uv.x + (uv.x * ns) * OSC * .2, 
+    uv.y - (uv.y * ns) * OSC * .2
+  ));
+  vec4 img2 = texture2D(u_t2, vec2(
+    uv.x - (uv.x * ns) * OSC * .2, 
+    uv.y + (uv.y * ns) * OSC * .2
+  ));
+
+
+  vec4 img = mix(img1, img2, u_a_trans);
 
   // static noise
   img += snoise(vec3(
@@ -100,6 +117,8 @@ void main() {
     u_time * 10.
   )) * .1;
 
+  // clear alpha when not on imag
+  // img.a = step(.2, img.a);
 
 
   gl_FragColor.rgb = img.rgb;

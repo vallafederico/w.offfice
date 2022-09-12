@@ -141,14 +141,14 @@ main {
   min-height: 100vh;
 }
 
-.Section {
-  /* border: 1px dotted lightgrey; */
+/* .Section { */
+/* border: 1px dotted lightgrey; */
 
-  /* margin: var(--space-l) var(--space-l); */
+/* margin: var(--space-l) var(--space-l); */
 
-  /* padding-top: var(--space-l); */
-  /* padding-bottom: var(--space-l); */
-}
+/* padding-top: var(--space-l); */
+/* padding-bottom: var(--space-l); */
+/* } */
 
 .c {
   margin-left: var(--space-l);
