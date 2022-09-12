@@ -91,23 +91,22 @@ void main() {
 
   vec2 uv = gl_FragCoord.xy / u_res;
 
-  float ns = snoise(vec3(uv * 8.1, u_time * .2));
+  float ns = snoise(vec3(uv * 8.1 , u_time * .2));
 
-  float cent_grad = distance(vec2(.5), uv);
-  cent_grad = smoothstep(.1, .3, cent_grad);
+  // float cent_grad = distance(vec2(.5), uv);
+  // cent_grad = smoothstep(.1, .3, cent_grad);
 
   vec2 n_uv = uv + (uv * ns * .2) * .1;
 
+  // imgs
   vec4 img1 = texture2D(u_t1, vec2(
-    uv.x + (uv.x * ns) * OSC * .2, 
-    uv.y - (uv.y * ns) * OSC * .2
+    uv.x + (uv.x * ns) * OSC * .1, 
+    uv.y - (uv.y * ns) * OSC * .1
   ));
   vec4 img2 = texture2D(u_t2, vec2(
-    uv.x - (uv.x * ns) * OSC * .2, 
-    uv.y + (uv.y * ns) * OSC * .2
+    uv.x - (uv.x * ns) * OSC * .1, 
+    uv.y + (uv.y * ns) * OSC * .1
   ));
-
-
   vec4 img = mix(img1, img2, u_a_trans);
 
   // static noise
