@@ -99,22 +99,30 @@ void main() {
   vec2 n_uv = uv + (uv * ns * .2) * .1;
 
   // imgs
-  vec4 img1 = texture2D(u_t1, vec2(
-    uv.x + (uv.x * ns) * OSC * .1, 
-    uv.y - (uv.y * ns) * OSC * .1
-  ));
-  vec4 img2 = texture2D(u_t2, vec2(
-    uv.x - (uv.x * ns) * OSC * .1, 
-    uv.y + (uv.y * ns) * OSC * .1
-  ));
-  vec4 img = mix(img1, img2, u_a_trans);
+  float _disp = (cos(u_a_trans * 1. / (1.0 / 3.141592)) + 1.0) / 2.0;
+  float _power = .1;
+
+  vec2 uv1 = vec2(
+    uv.x - (1.0 - _disp) * (ns * _power), 
+    uv.y - (1.0 - _disp) * (ns * _power)
+    );
+
+  vec2 uv2 = vec2(
+    uv.x + _disp * (ns * _power), 
+    uv.y + _disp * (ns * _power)
+    );
+
+  vec4 img1 = texture2D(u_t1, uv1);
+  vec4 img2 = texture2D(u_t2, uv2);
+
+  vec4 img = mix(img2, img1, _disp);
 
   // static noise
-  img += snoise(vec3(
+  img -= snoise(vec3(
     uv.x * 800.,
     uv.y * 800., 
     u_time * 10.
-  )) * .1;
+  )) * .03;
 
   // clear alpha when not on imag
   // img.a = step(.2, img.a);
@@ -125,3 +133,30 @@ void main() {
   gl_FragColor.a = img.a;
 }
   
+
+  /***
+  
+  
+  float displacementFactor = (cos(u_a_trans / (60.0 / 3.141592)) + 1.0) / 2.0;
+  float effectFactor = 1.0;
+  
+  vec2 uv1 = vec2(uv.x - (1.0 - displacementFactor) * (displacementTexture.r * effectFactor), uv.y);
+  vec2 uv2 = vec2(uv.x + displacementFactor * (displacementTexture.r * effectFactor), uv.y);
+
+  
+  */
+
+  /*
+  // imgs
+    vec4 img1 = texture2D(u_t1, vec2(
+    uv.x + (uv.x * ns) * OSC * .1, 
+    uv.y - (uv.y * ns) * OSC * .1
+  ));
+  
+  vec4 img2 = texture2D(u_t2, vec2(
+    uv.x - (uv.x * ns) * OSC * .1, 
+    uv.y + (uv.y * ns) * OSC * .1
+  ));
+  
+  vec4 img = mix(img1, img2, u_a_trans);
+  */

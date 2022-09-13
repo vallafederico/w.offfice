@@ -30,8 +30,7 @@ export default class extends Emitter {
       }
     );
 
-    this.items[0].viz.load(this.items[0].url);
-
+    this.items.forEach((item, i) => item.viz.load(this.items[i].url));
     this.initEvents();
   }
 
