@@ -59,12 +59,9 @@ export default class extends Emitter {
     this.items.forEach((item, i) => {
       item.el.onclick = () => {
         if (!this.tx.canSlide) return;
-        this.onImageChange(i);
 
-        if (!item.viz.isLoaded) {
-          // load if not loaded
-          item.viz.load(this.items[i].url);
-        }
+        this.onImageChange(i);
+        if (!item.viz.isLoaded) item.viz.load(this.items[i].url);
       };
     });
   }

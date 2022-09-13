@@ -1,5 +1,5 @@
 export const A = {
   transition: {
-    duration: 0.8,
+    duration: 1.2,
   },
 };

@@ -1,7 +1,19 @@
 export default function ({ children, className }) {
   const navLinks = [
-    { text: "Custom Work.", path: "/about" },
-    { text: "Shop Archive.", path: "/about" },
+    {
+      text: "Custom Work.",
+      path: "mailto:someone@yoursite.com",
+      subject: "Custom Work Request",
+      body: "Please provide as much information as possible. Feel free to attach pictures, concepts or anything you have at your disposal.",
+      target: "blank",
+    },
+    {
+      text: "Shop Archive.",
+      path: "mailto:someone@yoursite.com",
+      subject: "Archive Shop Inquiry",
+      body: "What piece are you enquiring for? What size? What color? To which state will this need to be shipped?",
+      target: "blank",
+    },
   ];
 
   return (
@@ -19,7 +31,11 @@ export default function ({ children, className }) {
       <ul class=" text-right font-bold leading-[2em]">
         {navLinks.map((link) => (
           <li>
-            <a class="hover:opacity-50" href={link.path}>
+            <a
+              target={link.target}
+              class="hover:opacity-50"
+              href={`${link.path}?subject=${link.subject}&body=${link.body}`}
+            >
               {link.text}
             </a>
           </li>
