@@ -68,7 +68,7 @@ export default class {
     Tween.to(this.a, {
       trans: 1,
       duration: d,
-      ease: "slow",
+      ease: "sine.out",
       onComplete: () => {
         this.a.trans = 0;
       },

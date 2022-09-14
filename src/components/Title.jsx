@@ -1,6 +1,6 @@
 export default function () {
   return (
-    <div class="uppercase sm:text-[17vh] md:text-[14vw] text-[13vw] leading-[.8em] md:mt-[-.1em] mt-[10vh]">
+    <div class="uppercase sm:text-[17vh] md:text-[14vw] text-[13vw] leading-[.8em] md:mt-[-.05em] mt-[10vh]">
       <div>office for</div>
       <div class="flex">
         future

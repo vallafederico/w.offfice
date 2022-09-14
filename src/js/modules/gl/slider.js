@@ -8,10 +8,13 @@ export default class extends Emitter {
     super();
     this.gl = gl;
 
+    this.frame = 0;
+
     this.tx = {
       curr: null,
       next: null,
       canSlide: true,
+      isSliding: true,
     };
 
     this.init();
@@ -41,15 +44,23 @@ export default class extends Emitter {
   }
 
   render(t, rmat) {
-    this.items.forEach((item, i) => {
+    this.items.forEach((item) => {
       if (item.active) {
-        item.viz.render(t, rmat);
+        if (this.frame % 2 === 0) {
+          // console.log("0");
+          item.viz.render(t, rmat);
+        }
         this.tx.curr = item.viz.rt.texture;
       } else if (item.next) {
-        item.viz.render(t, rmat);
+        if (this.frame % 2 !== 0) {
+          // console.log("1");
+          item.viz.render(t, rmat);
+        }
         this.tx.next = item.viz.rt.texture;
       }
     });
+
+    this.frame++;
   }
 
   /** --- DOM Events */
@@ -59,6 +70,7 @@ export default class extends Emitter {
     this.items.forEach((item, i) => {
       item.el.onclick = () => {
         if (!this.tx.canSlide) return;
+        this.tx.isSliding = true;
 
         this.onImageChange(i);
         if (!item.viz.isLoaded) item.viz.load(this.items[i].url);
@@ -81,6 +93,7 @@ export default class extends Emitter {
       this.items[this.nextItemIndex].next = false;
       this.nextItemIndex = null;
 
+      this.tx.isSliding = false;
       this.tx.canSlide = true;
     }, A.transition.duration * 1000);
   }

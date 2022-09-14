@@ -111,8 +111,6 @@ export default class {
 
     this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null);
 
-    // console.log(t1);
-
     if (this.quad) this.quad.render(t, this.texture, t1, t2);
   }
 

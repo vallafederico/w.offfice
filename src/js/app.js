@@ -21,4 +21,4 @@ class App {
   }
 }
 
-new App();
+window.App = new App();
