@@ -8,8 +8,11 @@ export default function () {
           <span class="text-[.5em]">↙</span> Archive.
         </h2>
       </div>
-      {CONTENT.list.map((item) => (
+      {CONTENT.list.map((item, i) => (
         <li
+          onClick={() => {
+            window.evts.clicky(i);
+          }}
           class="ListItem flex justify-between uppercase border-black border-t py-1 relative"
           data-model={item.model}
         >
