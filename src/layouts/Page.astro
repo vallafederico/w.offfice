@@ -13,17 +13,21 @@ const { title, route } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
+
   <body>
-    <div data-wrap>
-      <main data-route={route} data-scroll class="Main">
+    <div data-wrap class="relative">
+      <!-- main -->
+      <main data-route={route} data-scroll>
         <slot />
       </main>
-    </div>
 
-    <!-- Webgl -->
-    <canvas data-gl="c"></canvas>
-    <script>
-      import "../js/app.js";
-    </script>
+      <!-- canvas -->
+      <canvas data-gl="c"></canvas>
+
+      <!-- scripts -->
+      <script>
+        import "../js/app.js";
+      </script>
+    </div>
   </body>
 </html>

@@ -83,6 +83,7 @@ export default class {
       u_id: this.mat,
       u_time: t,
       u_rmat: rmat,
+      // u_scale: 1,
     });
 
     if (this.rt && this.rt.isActive) this.rt.setupRender(); // render to texture

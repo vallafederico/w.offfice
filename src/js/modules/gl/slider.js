@@ -46,16 +46,16 @@ export default class extends Emitter {
   render(t, rmat) {
     this.items.forEach((item) => {
       if (item.active) {
-        if (this.frame % 2 === 0) {
-          // console.log("0");
-          item.viz.render(t, rmat);
-        }
+        // if (this.frame % 2 === 0) {
+        // console.log("0");
+        item.viz.render(t, rmat);
+        // }
         this.tx.curr = item.viz.rt.texture;
       } else if (item.next) {
-        if (this.frame % 2 !== 0) {
-          // console.log("1");
-          item.viz.render(t, rmat);
-        }
+        // if (this.frame % 2 !== 0) {
+        // console.log("1");
+        item.viz.render(t, rmat);
+        // }
         this.tx.next = item.viz.rt.texture;
       }
     });

@@ -1,5 +1,5 @@
 import Gl from "./modules/gl/gl.js";
-import Scroll from "./modules/scroll.js";
+// import Scroll from "./modules/scroll.js";
 import Lenis from "./modules/lenis";
 
 class App {
@@ -8,17 +8,18 @@ class App {
 
     window.evts = {
       clicky: (i = null) => {
-        console.log("clicky", i);
+        // console.log("clicky", i);
       },
     };
 
     this.time = 0;
     this.init();
+    this.lenis = new Lenis();
   }
 
   init() {
     // this.scroll = new Scroll();
-    this.lenis = new Lenis();
+
     this.gl = new Gl();
 
     this.render();

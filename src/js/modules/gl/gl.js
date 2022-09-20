@@ -7,7 +7,12 @@ export default class {
   constructor() {
     this.canvas = document.querySelector("[data-gl='c']");
     this.gl = this.canvas.getContext("webgl");
-    this.gl.clearColor(0.04, 0.04, 0.04, 0);
+    this.gl.clearColor(
+      0.8156862745098039,
+      0.8156862745098039,
+      0.8156862745098039,
+      0
+    );
     this.gl.vp = { dpr: Math.min(window.devicePixelRatio, 2) };
 
     this.gl.enable(this.gl.CULL_FACE);

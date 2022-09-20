@@ -35,12 +35,15 @@ export default class Spinner {
   }
 
   mouseMove(e) {
-    if (!this.pointerDown) return;
+    // mult
+    let mult = 0.00005;
+    if (this.pointerDown) mult = 0.0004;
 
+    // compute
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     const y = e.touches ? e.touches[0].clientY : e.clientY;
-    this.velocity.x += (x - this.pointer.x) * 0.0002;
-    this.velocity.y += (y - this.pointer.y) * 0.0002;
+    this.velocity.x += (x - this.pointer.x) * mult;
+    this.velocity.y += (y - this.pointer.y) * mult;
 
     this.pointer.x = x;
     this.pointer.y = y;
@@ -57,10 +60,10 @@ export default class Spinner {
 
     this.spin.x +=
       this.velocity.x +
-      Math.sign(this.velocity.x) * 0.005 * (0.4 - Number(this.pointerDown));
+      Math.sign(this.velocity.x) * 0.0025 * (0.4 - Number(this.pointerDown));
     this.spin.y +=
       this.velocity.y +
-      Math.sign(this.velocity.y) * 0.005 * (0.4 - Number(this.pointerDown));
+      Math.sign(this.velocity.y) * 0.0025 * (0.4 - Number(this.pointerDown));
 
     const mx = m4.axisRotation([1, 0, 0], this.spin.y);
     const my = m4.axisRotation([0, 1, 0], this.spin.x);

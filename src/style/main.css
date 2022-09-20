@@ -2,7 +2,7 @@
 :root {
   /* Colors */
   --col-b: #1c1c1c;
-  --col-w: #b6b6b6;
+  --col-w: #d0d0d0;
   --col-g: #94ae9e;
   /* Spaces */
   --space-s: 0.5rem;
@@ -182,3 +182,5 @@ main {
 
   transition: transform 0.2s ease;
 } */
+
+/* ------------------------------  Layer */

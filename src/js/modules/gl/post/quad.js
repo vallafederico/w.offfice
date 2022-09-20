@@ -1,4 +1,11 @@
-import * as twgl from "twgl.js";
+// import * as twgl from "twgl.js";
+import {
+  createProgramInfo,
+  createBufferInfoFromArrays,
+  setUniforms,
+  setBuffersAndAttributes,
+  drawBufferInfo,
+} from "twgl.js";
 import Tween from "gsap";
 import shaders from "./mat/";
 
@@ -9,7 +16,7 @@ export default class {
     this.gl = gl;
     this.data = data;
     this.shaders = shaders;
-    this.programInfo = twgl.createProgramInfo(this.gl, this.shaders);
+    this.programInfo = createProgramInfo(this.gl, this.shaders);
 
     this.a = {
       trans: 0,
@@ -24,7 +31,7 @@ export default class {
     const arrays = {
       position: [-1, -1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1, -1, 0, 1, 1, 0],
     };
-    this.bufferInfo = twgl.createBufferInfoFromArrays(this.gl, arrays);
+    this.bufferInfo = createBufferInfoFromArrays(this.gl, arrays);
   }
 
   setUniforms() {
@@ -36,14 +43,14 @@ export default class {
     };
 
     this.gl.useProgram(this.programInfo.program);
-    twgl.setUniforms(this.programInfo, this.uniforms);
+    setUniforms(this.programInfo, this.uniforms);
   }
 
   render(time, diff = null, t1, t2) {
     // console.log(t1);
     this.gl.useProgram(this.programInfo.program);
-    twgl.setBuffersAndAttributes(this.gl, this.programInfo, this.bufferInfo);
-    twgl.setUniforms(this.programInfo, {
+    setBuffersAndAttributes(this.gl, this.programInfo, this.bufferInfo);
+    setUniforms(this.programInfo, {
       u_time: time,
       u_diff: diff,
       u_t1: t1,
@@ -51,7 +58,7 @@ export default class {
       u_a_trans: this.a.trans,
     });
 
-    twgl.drawBufferInfo(this.gl, this.bufferInfo);
+    drawBufferInfo(this.gl, this.bufferInfo);
     // this.gl.LINES
   }
 
@@ -59,7 +66,8 @@ export default class {
     this.gl = gl;
 
     this.gl.useProgram(this.programInfo.program);
-    twgl.setUniforms(this.programInfo, {
+
+    setUniforms(this.programInfo, {
       u_res: [this.gl.canvas.width, this.gl.canvas.height],
     });
   }
@@ -68,7 +76,7 @@ export default class {
     Tween.to(this.a, {
       trans: 1,
       duration: d,
-      ease: "sine.out",
+      ease: "slow",
       onComplete: () => {
         this.a.trans = 0;
       },

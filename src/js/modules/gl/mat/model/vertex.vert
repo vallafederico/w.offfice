@@ -23,7 +23,7 @@ void main() {
   vec4 pos = position;
 
   pos *= u_rmat;
-  pos.xyz *= 1.1;
+  pos.xyz *= 1.;
   // pos.z += sin(u_time) * 2.;
 
 
