@@ -23,5 +23,12 @@ export const CONTENT = {
       object: "Armchair",
       model: LIB.m2,
     },
+    {
+      name: "Abyss Seat",
+      year: "2022",
+      type: "Design",
+      object: "Armchair",
+      model: LIB.m3,
+    },
   ],
 };

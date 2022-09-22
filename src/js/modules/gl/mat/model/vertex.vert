@@ -16,6 +16,7 @@ varying vec2 v_res;
 varying float v_time;
 varying vec2 v_uv;
 varying vec3 v_nor;
+varying vec3 v_view;
 
 
 
@@ -27,7 +28,10 @@ void main() {
   // pos.z += sin(u_time) * 2.;
 
 
+
   gl_Position =  u_camera * u_id * vec4(pos);
+
+  v_view = normalize(- gl_Position.xyz);
 
   v_res = u_res;
   v_time = u_time;

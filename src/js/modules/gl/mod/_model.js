@@ -7,6 +7,9 @@ import {
   createBufferInfoFromArrays,
 } from "twgl.js";
 
+import { loadTexture } from "../utils/texture-loader.js";
+import { LIB } from "../../../../assets/lib.js";
+
 import Rt from "../post/rendertarget.js";
 
 import shaders from "../mat/model/index.js";
@@ -34,6 +37,7 @@ export default class {
 
   // this to load inside the model
   async load(data) {
+    this.matcap = await loadTexture(this.gl, LIB.mat, this.gl.NEAREST);
     const loaded = await loadModel(data);
     this.init(loaded);
 
@@ -83,6 +87,7 @@ export default class {
       u_id: this.mat,
       u_time: t,
       u_rmat: rmat,
+      u_matcap: this.matcap,
       // u_scale: 1,
     });
 
@@ -99,6 +104,7 @@ export default class {
       u_res: [gl.canvas.width, gl.canvas.height],
       u_vs: gl.vp.viewSize,
       u_camera: gl.camera.mat,
+      u_matcap: this.matcap,
     });
 
     if (this.rt) this.rt.resize(this.gl);
