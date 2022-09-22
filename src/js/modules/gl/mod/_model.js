@@ -88,6 +88,7 @@ export default class {
       u_time: t,
       u_rmat: rmat,
       u_matcap: this.matcap,
+      u_s_prog: window.ss.prog,
       // u_scale: 1,
     });
 

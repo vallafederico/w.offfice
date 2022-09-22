@@ -1,7 +1,7 @@
 export default function () {
   return (
     <div class="c flex justify-between pb-6 align-bottom">
-      <p class="max-w-[50vw] uppercase">
+      <p class="md:max-w-[60ch] max-w-[50vw] uppercase">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

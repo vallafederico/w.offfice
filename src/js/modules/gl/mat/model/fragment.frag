@@ -10,7 +10,7 @@ varying vec3 v_nor;
 varying vec3 v_view;
 
 const vec3 col_red = vec3(.85098039215686275, 0.15098039215686275, 0.15098039215686275);
-const vec3 col_grey1 = vec3(.25098039215686275);
+const vec3 col_grey1 = vec3(.45098039215686275);
 
 
 
@@ -33,7 +33,7 @@ void main() {
     vec3 final = col_grey1;
 
     final *= mtc.rrr;
-    final += hlight * .3;
+    final += hlight * .2;
     
     // final *= hlight + .1;
 

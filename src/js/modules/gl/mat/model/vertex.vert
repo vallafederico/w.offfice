@@ -9,6 +9,8 @@ uniform float u_time;
 uniform vec2 u_res;
 uniform vec2 u_vs;
 uniform mat4 u_rmat;
+uniform float u_s_prog;
+
 
 uniform float u_num0;
 
@@ -24,7 +26,7 @@ void main() {
   vec4 pos = position;
 
   pos *= u_rmat;
-  pos.xyz *= 1.;
+  pos.xyz *= 1.1 - u_s_prog * .1;
   // pos.z += sin(u_time) * 2.;
 
 

@@ -12,6 +12,11 @@ class App {
       },
     };
 
+    window.ss = {
+      vel: 0,
+      prog: 0,
+    };
+
     this.time = 0;
     this.init();
     this.lenis = new Lenis();

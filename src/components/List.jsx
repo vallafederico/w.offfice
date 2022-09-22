@@ -3,40 +3,23 @@ import { CONTENT } from "./content.js";
 export default function () {
   return (
     <ul class="mt-2">
-      <div class="flex justify-end py-1">
-        <h2 class="font-bold  text-lg">
-          <span class="text-[.5em]">↙</span> Archive.
-        </h2>
-      </div>
+      <li class="text-center font-bold text-lg">Archive.</li>
       {CONTENT.list.map((item, i) => (
         <li
           onClick={() => {
             window.evts.clicky(i);
           }}
-          class="ListItem flex justify-between uppercase border-black border-t py-1 relative"
+          class="text-center flex flex-col items-center "
           data-model={item.model}
         >
-          <div class="">
-            <p class="inline ft-gs mr-3">{item.name}</p>{" "}
-            <span class=""> {item.year}</span>
-          </div>
-
-          <div class="flex md:justify-between md:w-[50%] justify-end">
-            <div class=" w-[10%] sm:flex hidden justify-between">
-              <div>
-                {"•"} <span class="text-[.6em]">WW</span>
-              </div>
-              <div>
-                {"•"} <span class="text-[.6em]">US</span>
-              </div>
-            </div>
-
-            <div class="">
-              <span class="text-[8px] capitalize md:mr-6 mr-2 hidden sm:visible">
-                {item.type}
-              </span>{" "}
-              {item.object}
-            </div>
+          <h2 class="text-[5vw] leading-[.8em] mt-4 py-4 relative z-[100]">
+            <span class="ft-gs">{item.name} </span>
+            <span class="text-[2vw]">{item.year}</span>
+          </h2>
+          <div class="md:w-1/3 w-full flex justify-between">
+            <div class="">{item.object}</div>
+            <div class="text-[.8em] w-1/3 text-center">{item.avail}</div>
+            <div>{item.type}</div>
           </div>
         </li>
       ))}

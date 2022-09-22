@@ -9,6 +9,7 @@ uniform float u_a_trans;
 uniform sampler2D u_diff;
 uniform sampler2D u_t1;
 uniform sampler2D u_t2;
+uniform float u_s_vel;
 
 #include noise;
 #include displacement;
@@ -21,22 +22,23 @@ void main() {
   float cent_grad = distance(vec2(.5), uv);
   cent_grad = smoothstep(.1, .3, cent_grad);
 
-  // vec2 n_uv = uv + (uv * ns * .2 * cent_grad) * .05;
-  vec2 n_uv = uv;
+  vec2 n_uv = uv + (uv * ns * .2) * u_s_vel * .05;
+  // vec2 n_uv = uv;
 
 
   // >>>> mixing
   float _disp = (cos(u_a_trans * 1. / (1.0 / 3.141592)) + 1.0) / 2.0;
   float _power = .07;
+  float _mult = 3.;
 
   vec2 uv1 = vec2(
-    n_uv.x - (1.0 - _disp) * (cos(ns * 6.) * _power), 
-    n_uv.y - (1.0 - _disp) * (sin(ns * 8.) * _power)
+    n_uv.x - (1.0 - _disp) * (cos(ns * _mult) * _power), 
+    n_uv.y - (1.0 - _disp) * (sin(ns * _mult) * _power)
   );
 
   vec2 uv2 = vec2(
-    n_uv.x + _disp * (cos(ns * 6.) * _power), 
-    n_uv.y + _disp * (sin(ns * 8.) * _power)
+    n_uv.x + _disp * (cos(ns * _mult) * _power), 
+    n_uv.y + _disp * (sin(ns * _mult) * _power)
   );
 
 

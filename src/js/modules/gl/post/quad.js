@@ -56,6 +56,7 @@ export default class {
       u_t1: t1,
       u_t2: t2,
       u_a_trans: this.a.trans,
+      u_s_vel: window.ss.vel,
     });
 
     drawBufferInfo(this.gl, this.bufferInfo);
