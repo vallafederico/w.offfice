@@ -79,6 +79,8 @@ export default class extends Emitter {
   }
 
   onImageChange(i) {
+    if (this.currentItemIndex === i) return;
+
     this.tx.canSlide = false;
     this.nextItemIndex = i;
     this.items[this.nextItemIndex].next = true;

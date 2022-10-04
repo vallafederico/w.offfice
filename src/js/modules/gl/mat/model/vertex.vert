@@ -19,6 +19,7 @@ varying float v_time;
 varying vec2 v_uv;
 varying vec3 v_nor;
 varying vec3 v_view;
+varying float v_s_prog;
 
 
 
@@ -26,7 +27,7 @@ void main() {
   vec4 pos = position;
 
   pos *= u_rmat;
-  pos.xyz *= 1.1 - u_s_prog * .1;
+  pos.xyz *= 1.2 + (u_s_prog) * .2;
   // pos.z += sin(u_time) * 2.;
 
 
@@ -39,6 +40,7 @@ void main() {
   v_time = u_time;
   v_uv = texcoord;
   v_nor = vec3(vec4(normal, 1.) * u_rmat).xyz;
+  v_s_prog = u_s_prog;
 }
 
   

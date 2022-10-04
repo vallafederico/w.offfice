@@ -2,8 +2,10 @@
 :root {
   /* Colors */
   --col-b: #1c1c1c;
-  --col-w: #d0d0d0;
-  --col-g: #94ae9e;
+  --col-w: #c8c9cb;
+  --col-g: #c8c9cb;
+  --col-bg: #0f0f0f;
+  --col-tx: #ededed;
   /* Spaces */
   --space-s: 0.5rem;
   --space-m: 1rem;
@@ -118,8 +120,8 @@ body {
 }
 
 body {
-  background: var(--col-w);
-  color: var(--col-b);
+  background: var(--col-bg);
+  color: var(--col-tx);
 }
 
 /* ------------------------------  Webgl */
