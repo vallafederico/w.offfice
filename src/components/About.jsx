@@ -6,11 +6,10 @@ const CONTACTS = [
 export default function () {
   return (
     <div class="">
-      <p class="max-w-[50ch] text-lg uppercase">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+      <p class="max-w-[35ch] text-4xl uppercase layer-top">
+        We’re an Italian, Spanish and swiss multidisciplinary design studio
+        focused on interior, installations, digital imagery and liminal space
+        research.
       </p>
       <ul class="mt-2">
         {CONTACTS.map((item, i) => (

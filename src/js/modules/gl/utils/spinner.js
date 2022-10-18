@@ -60,10 +60,12 @@ export default class Spinner {
 
     this.spin.x +=
       this.velocity.x +
-      Math.sign(this.velocity.x) * 0.0025 * (0.4 - Number(this.pointerDown));
+      Math.sign(this.velocity.x) * 0.0025 * (0.2 - Number(this.pointerDown));
     this.spin.y +=
       this.velocity.y +
-      Math.sign(this.velocity.y) * 0.0025 * (0.4 - Number(this.pointerDown));
+      Math.sign(this.velocity.y) * 0.0025 * (0.2 - Number(this.pointerDown));
+
+    // console.log(this.spin.x);
 
     const mx = m4.axisRotation([1, 0, 0], this.spin.y);
     const my = m4.axisRotation([0, 1, 0], this.spin.x);

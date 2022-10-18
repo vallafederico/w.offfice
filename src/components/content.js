@@ -34,5 +34,21 @@ export const CONTENT = {
       model: LIB.m3,
       avail: "US / WW",
     },
+    {
+      name: "Lounge-y",
+      year: "2022",
+      type: "Interior Design",
+      object: "Armchair",
+      model: LIB.m4,
+      avail: "US / WW",
+    },
+    {
+      name: "Lounge-y II",
+      year: "2022",
+      type: "Interior Design",
+      object: "Armchair",
+      model: LIB.m5,
+      avail: "US / WW",
+    },
   ],
 };

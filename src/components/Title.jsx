@@ -4,7 +4,7 @@ export default function () {
       <div>office for</div>
       <div class="flex">
         future
-        <div class="w-full lg:flex hidden justify-between align-middle content-center text-xs ml-[10%] relative z-[100]">
+        <div class="w-full lg:flex hidden justify-between align-middle content-center text-xs ml-[10%] layer-top">
           <div class="flex flex-col justify-center ">
             <p class="max-w-[30ch]">
               <span class="italic">FUTURE </span>

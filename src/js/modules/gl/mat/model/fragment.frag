@@ -38,8 +38,8 @@ void main() {
     vec3 hlight = mix(h_ground, h_sky, 1. - dot(h_dir, v_nor));
 
     // * color
-    vec3 final = mtc.rrr * .5 * fres;
-    final += hlight * .1;
+    vec3 final = mtc.rrr * .5 - fres * .2;
+    final += hlight * .3;
     
 
     gl_FragColor.rgb = final;

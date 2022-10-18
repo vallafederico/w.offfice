@@ -5,6 +5,7 @@
   --col-w: #c8c9cb;
   --col-g: #c8c9cb;
   --col-bg: #0f0f0f;
+  /* --col-bg: #909090; */
   --col-tx: #ededed;
   /* Spaces */
   --space-s: 0.5rem;
@@ -186,18 +187,7 @@ main {
 } */
 
 /* ------------------------------  Layer */
-.layer-low [data-layer="hide"] {
-}
-
-.layer {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-
-  z-index: 100;
-}
-
-.layer [data-layer="hide"] {
-  visibility: hidden;
+.layer-top {
+  z-index: 20;
+  position: relative;
 }
