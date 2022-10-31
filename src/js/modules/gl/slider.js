@@ -25,6 +25,7 @@ export default class extends Emitter {
       (item, i) => {
         return {
           el: item,
+          h2: item.querySelector("h2"),
           viz: new Model(this.gl, { el: item }),
           url: item.dataset.model,
           active: i === 0 ? true : false,
@@ -32,6 +33,8 @@ export default class extends Emitter {
         };
       }
     );
+
+    console.log(this.items);
 
     this.items.forEach((item, i) => item.viz.load(this.items[i].url));
     this.initEvents();
@@ -67,6 +70,9 @@ export default class extends Emitter {
   initEvents() {
     this.currentItemIndex = 0;
     this.nextItemIndex = null;
+
+    this.items[0].h2.classList.add("layer-top");
+
     this.items.forEach((item, i) => {
       item.el.onclick = () => {
         if (!this.tx.canSlide) return;
@@ -80,6 +86,10 @@ export default class extends Emitter {
 
   onImageChange(i) {
     if (this.currentItemIndex === i) return;
+
+    // style swap
+    this.items[this.currentItemIndex].h2.classList.remove("layer-top");
+    this.items[i].h2.classList.add("layer-top");
 
     this.tx.canSlide = false;
     this.nextItemIndex = i;

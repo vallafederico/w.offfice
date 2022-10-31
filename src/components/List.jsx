@@ -12,7 +12,7 @@ export default function () {
           class="text-center flex flex-col items-center "
           data-model={item.model}
         >
-          <h2 class="text-[5vw] leading-[.8em] mt-4 py-4 relative z-[100] ">
+          <h2 class="text-[5vw] leading-[.8em] mt-4 py-4 relative z-[-1] ">
             <span class="ft-gs">{item.name} </span>
             <span class="text-[2vw]">{item.year}</span>
           </h2>

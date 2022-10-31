@@ -33,7 +33,7 @@ class App {
   render() {
     this.time++;
     // this.scroll?.raf();
-    this.lenis?.raf(this.time);
+    this.lenis?.render(this.time);
     window.requestAnimationFrame(this.render.bind(this));
   }
 }
